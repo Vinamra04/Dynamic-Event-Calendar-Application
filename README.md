@@ -1,4 +1,3 @@
-![menuscreen](https://github.com/user-attachments/assets/88426ac8-b66a-4ec1-bd28-8d794aeb72b7)![HomePage](https://github.com/user-attachments/assets/15417ddf-8ba6-4431-a2eb-0a9e12f9f409)
 # Dynamic Event Calendar Application
 
 A feature-rich web-based calendar application built with React and Vite.
@@ -49,16 +48,21 @@ Experience the Dynamic Event Calendar in action at:
 
 ![HomePage](https://github.com/user-attachments/assets/8d08bac7-ef93-4cee-8272-d24fe65c9013)
 
+
 ![menuscreen](https://github.com/user-attachments/assets/ba0ee6cb-01b7-41a5-aa70-25a6f4ad7165)
 
-![KeywordSearching](https://github.com/user-attachments/assets/468x300?9fd45bb8-9008-4a26-a97c-0ae305961dcb)
+
+![KeywordSearching](https://github.com/user-attachments/assets/9fd45bb8-9008-4a26-a97c-0ae305961dcb)
 
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![CustomizeCalendar1](https://github.com/user-attachments/assets/72be3587-4033-4b2b-b5dc-5e78046098bc)
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![CustomizeCalendar2](https://github.com/user-attachments/assets/cb865ca5-7199-470f-97bb-c9cc1c2b5017)
+
+
+![CustomizeCalendar3](https://github.com/user-attachments/assets/3ff5105c-7cad-41b1-861a-4f2a567b1897)
+
 
 
 ## Tech Stack
