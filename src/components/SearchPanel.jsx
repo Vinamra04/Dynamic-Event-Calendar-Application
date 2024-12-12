@@ -33,14 +33,16 @@ function SearchPanel({ onEventSelect }) {
 
   // Function to highlight matching text
   const highlightMatch = (text, query) => {
-    if (!query) return text
+    if (!query || !text) return text;
 
-    const parts = text.split(new RegExp(`(${query})`, 'gi'))
+    const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const parts = text.split(new RegExp(`(${escapedQuery})`, 'gi'));
+    
     return parts.map((part, index) => 
       part.toLowerCase() === query.toLowerCase() ? 
         <span key={index} className="search-highlight">{part}</span> : 
         part
-    )
+    );
   }
 
   useEffect(() => {

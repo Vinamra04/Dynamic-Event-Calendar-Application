@@ -323,3 +323,27 @@ p {
     color: lighten(#219ebc, 10%);
   }
 }
+
+@media screen and (max-width: 768px) {
+  .menu {
+    .menu-nav {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .images {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0.5rem;
+    }
+
+    .menu-nav-link {
+      font-size: 1.5rem;
+    }
+  }
+
+  .burger-menu {
+    top: 1rem;
+    left: 1rem;
+    --burger-menu-radius: 3em;
+  }
+}

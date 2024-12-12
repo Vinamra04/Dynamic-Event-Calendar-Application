@@ -79,3 +79,13 @@ a:hover {
 h1 {
   color: hsl(var(--foreground));
 }
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}

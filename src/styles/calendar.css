@@ -215,3 +215,23 @@
     background: rgba(0, 0, 0, 0.6);
     border-color: rgba(255, 255, 255, 0.2);
   }
+
+@media screen and (max-width: 768px) {
+  .calendar-grid {
+    font-size: 0.9rem;
+  }
+
+  .calendar-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .month-year-picker {
+    width: 100%;
+  }
+
+  .calendar-day {
+    aspect-ratio: 1;
+  }
+}

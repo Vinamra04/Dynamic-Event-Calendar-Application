@@ -359,3 +359,20 @@
 .view-conflict-button:hover {
   background: rgba(239, 71, 111, 0.25);
 }
+
+@media screen and (max-width: 768px) {
+  .event-sidebar {
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .event-form {
+    gap: 0.5rem;
+  }
+
+  .event-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

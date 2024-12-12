@@ -125,3 +125,18 @@
     color: hsl(var(--muted-foreground));
   }
   
+@media screen and (max-width: 768px) {
+  .upcoming-events-dropdown {
+    width: 100%;
+    max-width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+
+  .upcoming-events-trigger {
+    width: 100%;
+    justify-content: center;
+  }
+}
+  
