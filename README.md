@@ -46,7 +46,7 @@ Experience the Dynamic Event Calendar in action at:
 
 ## Screenshots
 
-[![Tutorial](https://img.youtube.com/vi/7OAbs1Q16pg/0.jpg)]((https://youtu.be/7OAbs1Q16pg))
+[![TUTORIAL FOR THE APP](http://img.youtube.com/vi/7OAbs1Q16pg/0.jpg)](http://www.youtube.com/watch?v=7OAbs1Q16pg "Tutorial")
 
 
 ![HomePage](https://github.com/user-attachments/assets/8d08bac7-ef93-4cee-8272-d24fe65c9013)
