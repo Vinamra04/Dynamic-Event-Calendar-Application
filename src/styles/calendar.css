@@ -1,0 +1,217 @@
+.calendar-layout {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.calendar {
+    flex: 0.95;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.calendar-weekday {
+    background: rgba(33, 158, 188, 0.15);
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calendar-day {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0.5rem;
+    min-height: 65px;
+    position: relative;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+/* Weekday styles (Monday-Friday) */
+.calendar-day:not(.weekend):not(.empty) {
+    background: rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Weekend styles (Saturday-Sunday) */
+.calendar-day.weekend {
+    background: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Empty day styles */
+.calendar-day.empty {
+    background: rgba(0, 0, 0, 0.4);
+    cursor: default;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Today styles */
+.calendar-day.today {
+    background: rgba(33, 158, 188, 0.1);
+    font-weight: bold;
+    color: #219ebc;
+    border: 2px solid #219ebc;
+}
+
+/* Selected day styles */
+.calendar-day.selected {
+    background: var(--hover);
+    border: 2px solid var(--primary);
+}
+
+/* Weekday header styles */
+.calendar-weekday {
+    background: rgba(33, 158, 188, 0.15);
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Weekend header styles */
+.calendar-weekday:nth-child(1),
+.calendar-weekday:nth-child(7) {
+    background: rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Weekday header styles (Mon-Fri) */
+.calendar-weekday:not(:nth-child(1)):not(:nth-child(7)) {
+    background: rgba(33, 158, 188, 0.2);
+    color: rgba(255, 255, 255, 1);
+}
+
+.calendar-day:hover .event-dot {
+    transform: scale(1.2);
+}
+
+.calendar-layout {
+    flex: 3;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .calendar {
+    flex: 1;
+    max-width: 800px;
+  }
+
+  .calendar-section {
+    flex: 2;
+    min-width: 800px;
+  }
+
+  /* Add these new styles */
+.calendar-day {
+    position: relative;
+  }
+  
+  .calendar-day[data-date] {
+    cursor: pointer;
+  }
+
+  /* Update calendar header styles */
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  
+  .app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    color: hsl(var(--foreground));
+  }
+
+  /* Add specific styles for the month-year display */
+  .month-year-button {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+  }
+
+  .month-year-button:hover {
+    color: #219ebc;
+    background: rgba(33, 158, 188, 0.1);
+  }
+
+  /* Keep dropdown options normal */
+  .picker-option {
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+
+  /* Calendar Navigation Buttons */
+  .calendar-nav-button {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s ease;
+  }
+
+  .calendar-nav-button:hover {
+    color: #219ebc;
+    background: transparent;
+  }
+
+  /* Today Button */
+  .today-button {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s ease;
+  }
+
+  .today-button:hover {
+    color: #219ebc;
+    background: transparent;
+  }
+
+  /* Hover styles for weekdays */
+  .calendar-day:not(.weekend):not(.empty):hover {
+    background: var(--hover);
+    border-color: var(--primary);
+  }
+
+  /* Hover styles for weekends */
+  .calendar-day.weekend:hover {
+    background: rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+  }

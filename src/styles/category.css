@@ -1,0 +1,96 @@
+/* Category Select Styles */
+.category-select {
+    position: relative;
+    width: 90%;
+  }
+  
+  .category-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius);
+    background: #1a1e23;
+    backdrop-filter: blur(8px);
+    font-size: 0.9rem;
+    height: 1.5rem;
+    transition: all 0.2s ease;
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .category-button:hover {
+    background: #2a3138;
+    border-color: #219ebc;
+    transform: translateY(-1px);
+  }
+  
+  .category-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background: #1a1e23;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius);
+    margin-top: 0.25rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+  }
+  
+  .category-option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    color: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+  }
+  
+  .category-option:last-child {
+    border-bottom: none;
+  }
+  
+  .category-option:hover {
+    color: #219ebc;
+    background: transparent;
+  }
+  
+  .category-option.selected {
+    color: #219ebc;
+    background: transparent;
+    font-weight: 500;
+  }
+  
+  .category-select .input-wrapper {
+    width: 100%;
+  }
+  
+  .category-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .category-icon {
+    width: 14px;
+    height: 14px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .category-button svg {
+    width: 14px;
+    height: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 0.7;
+  }
+  

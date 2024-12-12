@@ -1,0 +1,127 @@
+/* Upcoming events styles */
+.upcoming-events-container {
+  position: absolute;
+  top: 2rem;
+  right: 20%;
+  z-index: 2000;
+}
+
+.upcoming-events-trigger {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  height: auto;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.upcoming-events-trigger span {
+  color: rgba(255, 255, 255, 0.95);
+  transition: color 0.2s ease;
+}
+
+.upcoming-events-trigger:hover span {
+  color: #219ebc;
+}
+
+.upcoming-events-trigger svg {
+  color: rgba(255, 255, 255, 0.95);
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.upcoming-events-container:hover .upcoming-events-trigger svg {
+  transform: rotate(180deg);
+}
+
+/* Dropdown styles */
+.upcoming-events-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  width: 400px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform-origin: top right;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 2000;
+}
+
+.upcoming-events-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 0.5rem;
+}
+
+.upcoming-events-dropdown.open,
+.upcoming-events-dropdown:hover {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.upcoming-events-list {
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 1rem;
+  background: hsl(var(--background));
+}
+
+.upcoming-event-item {
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2001;
+} 
+
+.upcoming-event-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .upcoming-event-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  
+  .upcoming-event-header h4 {
+    margin: 0;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .upcoming-event-date {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0.25rem 0;
+  }
+  
+  .upcoming-event-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0.5rem 0 0 0;
+  }
+  
+  .upcoming-events-empty {
+    padding: 2rem;
+    text-align: center;
+    color: hsl(var(--muted-foreground));
+  }
+  

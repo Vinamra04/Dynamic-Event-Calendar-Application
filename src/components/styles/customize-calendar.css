@@ -1,0 +1,330 @@
+.customize-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.customize-modal {
+  background: #1a1e23;
+  border-radius: var(--radius);
+  padding: 2rem;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  color: #ef476f;
+  transform: rotate(90deg);
+}
+
+.customize-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  background: rgba(33, 158, 188, 0.1);
+  border-color: #219ebc;
+}
+
+.tab-button.active {
+  background: rgba(33, 158, 188, 0.2);
+  border-color: #219ebc;
+  color: #219ebc;
+}
+
+.customize-content {
+  min-height: 300px;
+}
+
+.upload-section,
+.unsplash-section,
+.theme-section {
+  padding: 1rem;
+}
+
+.file-input {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+}
+
+.search-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  color: white;
+}
+
+.search-bar button {
+  padding: 0.75rem 1.5rem;
+  background: rgba(33, 158, 188, 0.7);
+  border: none;
+  border-radius: var(--radius);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.search-bar button:hover {
+  background: rgba(33, 158, 188, 0.9);
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.image-item {
+  aspect-ratio: 1;
+  cursor: pointer;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.image-item:hover {
+  transform: scale(1.05);
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.color-picker {
+  width: 100%;
+  height: 50px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.upload-info,
+.theme-info {
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.default-backgrounds {
+  padding: 1rem;
+}
+
+.backgrounds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.background-item {
+  position: relative;
+  aspect-ratio: 16/9;
+  cursor: pointer;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.background-item:hover {
+  transform: scale(1.05);
+  border-color: #219ebc;
+}
+
+.background-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.background-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.customize-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cancel-button,
+.apply-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.cancel-button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.apply-button {
+  background: rgba(33, 158, 188, 0.7);
+  border: 1px solid rgba(33, 158, 188, 0.4);
+  color: white;
+}
+
+.cancel-button:hover {
+  background: rgba(239, 71, 111, 0.1);
+  border-color: #ef476f;
+  color: #ef476f;
+}
+
+.apply-button:hover {
+  background: rgba(33, 158, 188, 0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(33, 158, 188, 0.2);
+}
+
+/* Add these styles for video backgrounds */
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Update background item to show video preview */
+.background-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.background-item.selected {
+  border-color: #219ebc;
+  box-shadow: 0 0 0 2px rgba(33, 158, 188, 0.4);
+}
+
+.background-video.preview {
+  opacity: 0.7;
+}
+
+.background-item {
+  position: relative;
+}
+
+.delete-background {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(239, 71, 111, 0.7);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.background-item:hover .delete-background {
+  opacity: 1;
+}
+
+.delete-background:hover {
+  background: rgba(239, 71, 111, 0.9);
+  transform: scale(1.1);
+}

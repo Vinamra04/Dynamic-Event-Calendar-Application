@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #219ebc;
+    --secondary: #ef476f;
+    --background: #1a1e23;
+    --text: #ffffff;
+    --border: rgba(255, 255, 255, 0.2);
+    --hover: rgba(33, 158, 188, 0.2);
+    --primary-hover: #1b89a5;
+    --secondary-hover: #d93d63;
+    --radius: 8px;
+  }
+
+  .dark {
+    --background: 200 26% 18%;   /* Navy */
+    --foreground: 24 29% 89%;    /* Cream */
+    
+    --card: 200 26% 23%;         /* Lighter Navy */
+    --card-foreground: 24 29% 89%; /* Cream */
+    
+    --popover: 200 26% 23%;      /* Lighter Navy */
+    --popover-foreground: 24 29% 89%; /* Cream */
+    
+    --primary: 24 29% 89%;       /* Cream */
+    --primary-foreground: 200 26% 18%; /* Navy */
+    
+    --secondary: 26 24% 67%;     /* Tan */
+    --secondary-foreground: 180 6% 3%; /* Black */
+    
+    --muted: 200 26% 23%;        /* Lighter Navy */
+    --muted-foreground: 26 24% 67%; /* Tan */
+    
+    --accent: 33 20% 31%;        /* Brown */
+    --accent-foreground: 24 29% 89%; /* Cream */
+    
+    --destructive: 0 84% 60%;    /* Red */
+    --destructive-foreground: 24 29% 89%; /* Cream */
+    
+    --border: 33 20% 31%;        /* Brown */
+    --input: 33 20% 31%;         /* Brown */
+    --ring: 24 29% 89%;          /* Cream */
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+/* Global button reset */
+button {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease;
+}
+
+button:hover {
+  background: transparent;
+}
+
+/* Global link styles */
+a {
+  color: var(--primary);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+h1 {
+  color: hsl(var(--foreground));
+}

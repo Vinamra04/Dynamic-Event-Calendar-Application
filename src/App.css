@@ -1,0 +1,725 @@
+@import './styles/calendar.css';
+@import './styles/event-dots.css';
+@import './styles/event-sidebar.css';
+@import './styles/upcoming-events.css';
+@import './styles/drag-drop.css';
+@import './styles/modals.css';
+@import './styles/category.css';
+@import './styles/picker.css';
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  color: hsl(var(--foreground));
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.app-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  background: transparent;
+}
+
+.header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.header-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+/* Position Upcoming Events absolutely to the right */
+.upcoming-events-container {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.main-layout {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.calendar-section {
+  flex: 1;
+}
+
+.side-section {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  position: relative;
+  background: transparent;
+}
+
+/* Update search panel styles */
+.search-container {
+  margin-top: 1rem;
+  position: relative;
+}
+
+.search-container .input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-container input {
+  padding-left: 2.5rem;
+}
+
+
+.search-panel {
+  position: relative;
+  width: 100%;
+}
+
+.search-panel input {
+  width: 100%;
+  padding: 0.75rem 2.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.95rem;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.search-panel input:focus {
+  outline: none;
+  border-color: #219ebc;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.search-panel input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-panel svg {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  width: 1.4rem;
+  height: 1.4rem;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.search-panel:hover svg,
+.search-panel input:focus + svg {
+  color: #219ebc;
+  opacity: 1;
+}
+
+.search-results {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: calc(100vh - 250px);
+  overflow-y: auto;
+}
+
+.search-result-item {
+  padding: 1rem;
+  background-color: hsl(var(--card));
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+}
+
+.search-result-item h4 {
+  color: hsl(var(--primary));
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.search-result-item .date-time {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.search-result-item .description {
+  color: hsl(var(--foreground));
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  color: hsl(var(--muted-foreground));
+}
+
+
+.calendar-section {
+  flex: 2;
+  min-width: 800px;
+}
+
+.search-panel {
+  margin-bottom: 1rem;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 50;
+}
+
+.search-dropdown-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.search-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.search-dropdown-item:hover {
+  background: rgba(33, 158, 188, 0.2);
+}
+
+.search-dropdown-item h4 {
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+}
+
+.search-dropdown-item .date-time {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+}
+
+.search-dropdown-item .description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.no-results {
+  padding: 1rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Add these new styles for search highlighting */
+.search-highlight {
+  background-color: hsl(var(--primary)/0.2);
+  color: hsl(var(--primary));
+  padding: 0.1em 0;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+/* Update search dropdown item styles */
+.search-dropdown-item .description {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* Search Result Styles */
+.search-result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 2rem 0;
+  color: hsl(var(--muted-foreground));
+}
+
+.calendar {
+  flex: 1;
+  max-width: 800px;
+  background: transparent;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+}
+
+.event-sidebar .search-container {
+  display: none;
+}
+
+.main-layout {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.result-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.result-title h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: hsl(220 10% 20%);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.result-highlight {
+  background: hsl(220 10% 85%);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: normal;
+}
+
+.result-date {
+  color: hsl(220 10% 40%);
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.result-description {
+  color: hsl(220 10% 40%);
+  font-size: 0.95rem;
+}
+
+.result-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: hsl(30 20% 95%);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.result-category svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.event-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.event-wrapper {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.event-wrapper.dragging {
+  transform: scale(1.02);
+}
+
+.upcoming-events-trigger {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensure menu stays solid */
+.menu {
+  background: #1a1e23;
+}
+
+/* Adjust text colors for better visibility */
+.header-content h1,
+.calendar-day,
+.search-panel input,
+.upcoming-events-trigger {
+  color: white;
+}
+
+/* Keep calendar grid lines visible */
+.calendar-grid {
+  border: 1px solid hsl(var(--border));
+  background-color: transparent;
+}
+
+.calendar-day {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid hsl(var(--border));
+}
+
+/* Button and Interactive Element Hover Effects */
+
+/* Calendar Day Hover */
+.calendar-day:hover {
+  background-color: rgba(33, 158, 188, 0.2);
+  border-color: rgba(33, 158, 188, 0.4);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Event Dots Hover */
+.event-dot:hover {
+  transform: scale(1.5);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3),
+              0 0 0 4px rgba(33, 158, 188, 0.6);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Search Box Hover/Focus */
+.search-panel input:hover {
+  border-color: rgba(33, 158, 188, 0.6);
+  transition: all 0.2s ease;
+}
+
+.search-panel input:focus {
+  border-color: #219ebc;
+  box-shadow: 0 0 0 2px rgba(33, 158, 188, 0.2);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Dropdown Items Hover */
+.search-dropdown-item:hover,
+.upcoming-event-item:hover {
+  background: rgba(33, 158, 188, 0.15);
+  transform: translateX(4px);
+  transition: all 0.2s ease;
+}
+
+/* Event Sidebar Items Hover */
+.event-item:hover {
+  transform: translateX(4px);
+  background: rgba(33, 158, 188, 0.15);
+  border-color: rgba(33, 158, 188, 0.4);
+  transition: all 0.2s ease;
+}
+
+/* Form Buttons Hover */
+.save-button:hover,
+button[type="submit"]:hover {
+  background: rgba(33, 158, 188, 0.8);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(33, 158, 188, 0.2);
+  transition: all 0.2s ease;
+}
+
+/* Month/Year Picker Hover */
+.picker-option:hover {
+  background: rgba(33, 158, 188, 0.15);
+  transition: all 0.2s ease;
+}
+
+/* Category Options Hover */
+.category-option:hover {
+  background: rgba(33, 158, 188, 0.15);
+  transform: translateX(2px);
+  transition: all 0.2s ease;
+}
+
+/* Upcoming Events Button Hover */
+.upcoming-events-trigger:hover {
+  color: #219ebc;
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Add smooth transitions for all interactive elements */
+.calendar-day,
+.event-dot,
+.search-panel input,
+.search-dropdown-item,
+.upcoming-event-item,
+.event-item,
+.save-button,
+button[type="submit"],
+.picker-option,
+.category-option,
+.upcoming-events-trigger {
+  transition: all 0.2s ease;
+}
+
+/* Additional Button and Interactive Element Hover Effects */
+
+/* Profile Page Button Hovers */
+.profile-form button:hover {
+  background: rgba(33, 158, 188, 0.8);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(33, 158, 188, 0.2);
+}
+
+/* Radio Button Hover */
+.radio-label:hover {
+  color: #219ebc;
+  transform: translateX(2px);
+}
+
+/* Event Form Input Hovers */
+.event-form input:hover,
+.event-form textarea:hover {
+  border-color: rgba(33, 158, 188, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Calendar Navigation Buttons Hover */
+.calendar-header button:hover {
+  color: #219ebc;
+  transform: scale(1.1);
+}
+
+/* Export Events Button Hover */
+button[aria-label="Export Events"]:hover {
+  color: #219ebc;
+  transform: scale(1.1);
+}
+
+/* Close Button Hover */
+button[aria-label="Close"]:hover {
+  color: #219ebc;
+  transform: rotate(90deg);
+}
+
+/* Event Category Tag Hover */
+.event-category:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(33, 158, 188, 0.2);
+}
+
+/* News Feed Item Hover */
+.image-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* More News Link Hover */
+.more-news:hover {
+  color: #219ebc;
+  transform: translateX(4px);
+}
+
+/* Page Header Logo Hover */
+.header-logo:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* Add transitions for new interactive elements */
+.profile-form button,
+.radio-label,
+.event-form input,
+.event-form textarea,
+.calendar-header button,
+button[aria-label="Export Events"],
+button[aria-label="Close"],
+.event-category,
+.image-link,
+.more-news,
+.header-logo {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Add hover effect for any clickable text */
+[role="button"]:hover,
+a:hover {
+  color: #219ebc;
+  transition: all 0.2s ease;
+}
+
+/* Add subtle scale effect for all buttons on active state */
+button:active,
+[role="button"]:active {
+  transform: scale(0.98);
+}
+
+.customize-button-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+}
+
+.customize-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  background: transparent;
+  border: 2px solid rgba(33, 158, 188, 0.4);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.customize-button .edit-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.customize-text {
+  position: absolute;
+  right: calc(100% + 0.75rem);
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.customize-button:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(33, 158, 188, 0.3);
+}
+
+.customize-button:hover .customize-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.customize-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(33, 158, 188, 0.2);
+}
+
+/* Styles for the conflict message and button */
+.conflict-message {
+  color: #ef476f;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: rgba(239, 71, 111, 0.1);
+  border-radius: var(--radius);
+  border: 1px solid rgba(239, 71, 111, 0.2);
+}
+
+.view-conflict-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: rgba(239, 71, 111, 0.15);
+  border: 1px solid rgba(239, 71, 111, 0.3);
+  border-radius: var(--radius);
+  color: #ef476f;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-conflict-button:hover {
+  background: rgba(239, 71, 111, 0.25);
+  border-color: rgba(239, 71, 111, 0.4);
+  transform: translateY(-1px);
+}
+
+.view-conflict-button:active {
+  transform: translateY(0);
+}
+
+/* Add an icon to the button */
+.view-conflict-button svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Profile page header icon */
+.header-content h1 svg {
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  opacity: 0.9;
+}
+
+/* Optional hover effect */
+.header-content h1:hover svg {
+  opacity: 1;
+}

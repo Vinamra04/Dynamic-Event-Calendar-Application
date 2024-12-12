@@ -1,0 +1,28 @@
+.search-panel input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(4px);
+}
+
+.search-panel input:focus {
+  border-color: #219ebc;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.search-dropdown {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.search-result-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-result-item:hover {
+  background: rgba(33, 158, 188, 0.2);
+  border-color: rgba(33, 158, 188, 0.4);
+} 

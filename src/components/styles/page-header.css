@@ -1,0 +1,32 @@
+.page-header {
+  position: fixed;
+  top: 1rem;
+  left: 2rem; /* Align with burger menu */
+  z-index: 9999;
+  transition: opacity 0.3s, visibility 0.3s; /* Add smooth transition */
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Reduced gap between icon and text */
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-bottom: 1rem; /* Add space between header and burger menu */
+}
+
+.header-logo:hover {
+  opacity: 0.9;
+}
+
+.header-icon {
+  width: 2.25rem; /* Slightly reduced size */
+  height: 2.25rem;
+}
+
+.header-logo h1 {
+  margin: 0;
+  font-size: 2.25rem; /* Slightly reduced size */
+  font-weight: 700;
+  color: hsl(var(--foreground));
+} 
