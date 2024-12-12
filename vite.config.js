@@ -20,7 +20,19 @@ export default defineConfig({
       output: {
         manualChunks: undefined,
         format: 'es',
+        assetFileNames: (assetInfo) => {
+          let extType = assetInfo.name.split('.').at(1);
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+            extType = 'img';
+          }
+          return `assets/${extType}/[name]-[hash][extname]`;
+        },
       },
+    },
+  },
+  css: {
+    modules: {
+      localsConvention: 'camelCase',
     },
   },
 })
