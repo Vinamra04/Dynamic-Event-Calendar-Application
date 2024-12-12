@@ -47,11 +47,12 @@ Experience the Dynamic Event Calendar in action at:
 
 ## Screenshots
 
-![App Screenshot]![HomePage](https://github.com/user-attachments/assets/8d08bac7-ef93-4cee-8272-d24fe65c9013)
+![HomePage](https://github.com/user-attachments/assets/8d08bac7-ef93-4cee-8272-d24fe65c9013)
 
-![App Screenshot]![menuscreen](https://github.com/user-attachments/assets/ba0ee6cb-01b7-41a5-aa70-25a6f4ad7165)
+![menuscreen](https://github.com/user-attachments/assets/ba0ee6cb-01b7-41a5-aa70-25a6f4ad7165)
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![KeywordSearching](https://github.com/user-attachments/assets/468x300?9fd45bb8-9008-4a26-a97c-0ae305961dcb)
+
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
